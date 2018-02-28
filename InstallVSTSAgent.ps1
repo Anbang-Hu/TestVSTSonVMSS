@@ -11,24 +11,24 @@ Param(
 [Parameter(Mandatory=$true)]$VSTSBuildAgentPassword
 )
 
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+# [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-# Set the computer name to be the agentname
-$AgentName = $env:ComputerName + "-" + (Get-Date -UFormat "%s")
+# # Set the computer name to be the agentname
+# $AgentName = $env:ComputerName + "-" + (Get-Date -UFormat "%s")
 
-# Start VSO Agent Install
-Write-Verbose "Entering InstallVSTSAgent.ps1" -verbose
+# # Start VSO Agent Install
+# Write-Verbose "Entering InstallVSTSAgent.ps1" -verbose
 
-$currentLocation = Split-Path -parent $MyInvocation.MyCommand.Definition
-Write-Verbose "Current folder: $currentLocation" -verbose
+# $currentLocation = Split-Path -parent $MyInvocation.MyCommand.Definition
+# Write-Verbose "Current folder: $currentLocation" -verbose
 
-#Create a temporary directory where to download from VSTS the agent package (vsts-agent.zip) and then launch the configuration.
-$agentTempFolderName = Join-Path $env:temp ([System.IO.Path]::GetRandomFileName())
-New-Item -ItemType Directory -Force -Path $agentTempFolderName
-Write-Verbose "Temporary Agent download folder: $agentTempFolderName" -verbose
+# #Create a temporary directory where to download from VSTS the agent package (vsts-agent.zip) and then launch the configuration.
+# $agentTempFolderName = Join-Path $env:temp ([System.IO.Path]::GetRandomFileName())
+# New-Item -ItemType Directory -Force -Path $agentTempFolderName
+# Write-Verbose "Temporary Agent download folder: $agentTempFolderName" -verbose
 
-$serverUrl = "https://$VSTSAccount.visualstudio.com"
-Write-Verbose "Server URL: $serverUrl" -verbose
+# $serverUrl = "https://$VSTSAccount.visualstudio.com"
+# Write-Verbose "Server URL: $serverUrl" -verbose
 
 # $retryCount = 3
 # $retries = 1
