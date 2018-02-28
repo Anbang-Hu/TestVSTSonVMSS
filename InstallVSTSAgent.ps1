@@ -69,7 +69,7 @@ Write-Verbose "Configuring agent" -Verbose
 # Set the current directory to the agent dedicated one previously created.
 Push-Location -Path $agentInstallationPath
 
-.\config.cmd --unattended --url $serverUrl --auth PAT --token $PersonalAccessToken --pool $PoolName --agent $AgentName --runAsService --windowsLogonAccount $VSTSBuildAgentUsername --windowsLogonPassword $VSTSBuildAgentPassword
+#.\config.cmd --unattended --url $serverUrl --auth PAT --token $PersonalAccessToken --pool $PoolName --agent $AgentName --runAsService --windowsLogonAccount $VSTSBuildAgentUsername --windowsLogonPassword $VSTSBuildAgentPassword
 
 Pop-Location
 
